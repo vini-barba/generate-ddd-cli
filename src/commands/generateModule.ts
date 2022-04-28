@@ -7,7 +7,7 @@ import CreateEntityFactorySpec from './actions/domain/factory/entity-factory-spe
 
 export default function generateModule(args: string[], program: Command): void {
   const command = program
-    .command('generate-module <name>')
+    .command('generate-module <name...>')
     .aliases(['gm'])
     .description('Generate a new module')
     .option(
@@ -15,11 +15,13 @@ export default function generateModule(args: string[], program: Command): void {
       'Path where the module should be created, default is "./src"',
       './src',
     );
-  command.action((name: string, options: any) => {
-    new CreateEntityInterface(name, options.path).writeFile();
-    new CreateEntity(name, options.path).writeFile();
-    new CreateEntitySpec(name, options.path).writeFile();
-    new CreateEntityFactory(name, options.path).writeFile();
-    new CreateEntityFactorySpec(name, options.path).writeFile();
+  command.action((names: string[], options: any) => {
+    names.forEach((name: string) => {
+      new CreateEntityInterface(name, options.path).writeFile();
+      new CreateEntity(name, options.path).writeFile();
+      new CreateEntitySpec(name, options.path).writeFile();
+      new CreateEntityFactory(name, options.path).writeFile();
+      new CreateEntityFactorySpec(name, options.path).writeFile();
+    });
   });
 }

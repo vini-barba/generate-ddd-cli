@@ -7,7 +7,7 @@ export default function generateDomainFactory(
   program: Command,
 ): void {
   const command = program
-    .command('generate-factory <name>')
+    .command('generate-factory <name...>')
     .aliases(['gf'])
     .description('Generate a new Factory')
     .option(
@@ -15,8 +15,10 @@ export default function generateDomainFactory(
       'Path where the Factory should be created, default is "./src"',
       './src',
     );
-  command.action((name: string, options: any) => {
-    new CreateEntityFactory(name, options.path).writeFile();
-    new CreateEntityFactorySpec(name, options.path).writeFile();
+  command.action((names: string[], options: any) => {
+    names.forEach((name: string) => {
+      new CreateEntityFactory(name, options.path).writeFile();
+      new CreateEntityFactorySpec(name, options.path).writeFile();
+    });
   });
 }

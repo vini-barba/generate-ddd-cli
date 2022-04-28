@@ -8,7 +8,7 @@ export default function generateDomainEntity(
   program: Command,
 ): void {
   const command = program
-    .command('generate-entity <name>')
+    .command('generate-entity <name...>')
     .aliases(['ge'])
     .description('Generate a new Entity')
     .option(
@@ -16,9 +16,11 @@ export default function generateDomainEntity(
       'Path where the Entity should be created, default is "./src"',
       './src',
     );
-  command.action((name: string, options: any) => {
-    new CreateEntityInterface(name, options.path).writeFile();
-    new CreateEntity(name, options.path).writeFile();
-    new CreateEntitySpec(name, options.path).writeFile();
+  command.action((names: string[], options: any) => {
+    names.forEach((name: string) => {
+      new CreateEntityInterface(name, options.path).writeFile();
+      new CreateEntity(name, options.path).writeFile();
+      new CreateEntitySpec(name, options.path).writeFile();
+    });
   });
 }
