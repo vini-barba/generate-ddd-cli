@@ -1,0 +1,11 @@
+import NAME_PASCALFactory from './NAME_KEBAB.factory';
+import NAME_PASCAL from '../entity/NAME_KEBAB';
+
+describe('Name factory unit test', () => {
+  it('Should create a NAME_PASCAL', () => {
+    const NAME_CAMEL1 = NAME_PASCALFactory.create({});
+
+    expect(NAME_CAMEL1).toBeInstanceOf(NAME_PASCAL);
+    expect(NAME_CAMEL1.id).toBeDefined();
+  });
+});

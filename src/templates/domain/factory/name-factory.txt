@@ -1,0 +1,10 @@
+import { v4 as uuid } from 'uuid';
+import NAME_PASCAL from '../entity/NAME_KEBAB';
+import NAME_PASCALInterface from '../entity/NAME_KEBAB.interface';
+
+export default class NAME_PASCALFactory {
+  public static create(props: any): NAME_PASCALInterface {
+    const id = props.id || uuid();
+    return new NAME_PASCAL(id);
+  }
+}

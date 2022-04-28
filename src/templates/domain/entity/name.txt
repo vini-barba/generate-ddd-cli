@@ -1,0 +1,13 @@
+import NAME_PASCALInterface from './NAME_KEBAB.interface';
+
+export default class NAME_PASCAL implements NAME_PASCALInterface {
+  private _id: string;
+
+  constructor(id: string) {
+    this._id = id;
+  }
+
+  get id(): string {
+    return this._id;
+  }
+}

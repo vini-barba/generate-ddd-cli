@@ -1,0 +1,8 @@
+import NAME_PASCAL from './NAME_KEBAB';
+
+describe('Test NAME_CAPITALIZE', () => {
+  it('should be defined', () => {
+    const NAME_CAMEL = new NAME_PASCAL('id');
+    expect(NAME_CAMEL).toBeDefined();
+  });
+});
