@@ -22,7 +22,10 @@ export default class GenerateDomainEntity
       names.forEach((name: string) => {
         new CreateEntityInterface(name, options.path).writeFile();
         new CreateEntity(name, options.path).writeFile();
-        new CreateEntitySpec(name, options.path).writeFile();
+
+        if (this.config.createTests === true) {
+          new CreateEntitySpec(name, options.path).writeFile();
+        }
       });
     });
   }

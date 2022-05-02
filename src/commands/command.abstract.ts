@@ -8,12 +8,12 @@ export default abstract class CommandAbstract {
 
   protected args: string[];
 
-  protected configFile: Config;
+  protected config: Config;
 
   constructor(program: Command, args: string[], config: Config) {
     this.program = program;
     this.args = args;
-    this.configFile = config;
+    this.config = config;
     this.setCommand();
   }
 

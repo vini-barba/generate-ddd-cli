@@ -20,7 +20,10 @@ export default class GenerateDomainFactory
     this.command.action((names: string[], options: any) => {
       names.forEach((name: string) => {
         new CreateEntityFactory(name, options.path).writeFile();
-        new CreateEntityFactorySpec(name, options.path).writeFile();
+
+        if (this.config.createTests === true) {
+          new CreateEntityFactorySpec(name, options.path).writeFile();
+        }
       });
     });
   }
