@@ -7,7 +7,7 @@ module.exports = {
   extends: ['airbnb-base', 'plugin:prettier/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 'latest',
+    ecmaVersion: '2020',
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'prettier', 'jest'],
@@ -15,12 +15,15 @@ module.exports = {
     'prettier/prettier': 'error',
     'import/extensions': 'off',
     'no-underscore-dangle': 'off',
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
-  root: true,
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.jsx', '.ts', '.tsx'],
+        extensions: ['.ts'],
       },
     },
   },

@@ -1,11 +1,16 @@
 import { Command } from 'commander';
+import Config from '../utils/config/config';
 import CreateEntity from './actions/domain/entity/entity';
 import CreateEntityInterface from './actions/domain/entity/entity-interface';
 import CreateEntitySpec from './actions/domain/entity/entity-spec';
 import CreateEntityFactory from './actions/domain/factory/entity-factory';
 import CreateEntityFactorySpec from './actions/domain/factory/entity-factory-spec';
 
-export default function generateModule(args: string[], program: Command): void {
+export default function generateModule(
+  args: string[],
+  program: Command,
+  config: Config,
+): void {
   const command = program
     .command('generate-module <name...>')
     .aliases(['gm'])

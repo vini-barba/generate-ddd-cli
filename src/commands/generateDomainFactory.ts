@@ -1,10 +1,12 @@
 import { Command } from 'commander';
+import Config from '../utils/config/config';
 import CreateEntityFactory from './actions/domain/factory/entity-factory';
 import CreateEntityFactorySpec from './actions/domain/factory/entity-factory-spec';
 
 export default function generateDomainFactory(
   args: string[],
   program: Command,
+  config: Config,
 ): void {
   const command = program
     .command('generate-factory <name...>')
