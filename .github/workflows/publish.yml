@@ -1,9 +1,9 @@
-name: "publish"
+name: 'publish'
 
-on: 
-  push: 
-    branches: 
-      - "main"
+on:
+  push:
+    branches:
+      - 'main'
 
 jobs:
   publish:
@@ -11,11 +11,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: node 
+      - name: node
         uses: actions/setup-node@v3
         with:
-          node-version: "14"
-          registry: "https://registry.npmjs.org/"
+          node-version: '14'
+          registry: 'https://registry.npmjs.org/'
       - name: publish
         run: npm publish --access public
         env:
