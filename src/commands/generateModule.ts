@@ -17,18 +17,22 @@ export default class GenerateModule
       .description('Generate a new module')
       .option(
         '-p, --path <path>',
-        'Path where the module should be created, default is "./src"',
-        './src',
+        `Path where the module should be created, default is your rootDir (${this.config.rootDir})`,
+        this.config.rootDir,
       );
     this.command.action((names: string[], options: any) => {
       names.forEach((name: string) => {
-        new CreateEntityInterface(name, options.path).writeFile();
-        new CreateEntity(name, options.path).writeFile();
-        new CreateEntityFactory(name, options.path).writeFile();
+        new CreateEntityInterface(name, options.path, this.config).writeFile();
+        new CreateEntity(name, options.path, this.config).writeFile();
+        new CreateEntityFactory(name, options.path, this.config).writeFile();
 
         if (this.config.createTests === true) {
-          new CreateEntitySpec(name, options.path).writeFile();
-          new CreateEntityFactorySpec(name, options.path).writeFile();
+          new CreateEntitySpec(name, options.path, this.config).writeFile();
+          new CreateEntityFactorySpec(
+            name,
+            options.path,
+            this.config,
+          ).writeFile();
         }
       });
     });

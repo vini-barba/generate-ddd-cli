@@ -5,6 +5,10 @@
   "main": "bin/generate-ddd-cli",
   "author": "Barba<vinicius_gomes.94@hotmail.com>",
   "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "generate-ddd-cli": "bin/generate-ddd-cli"
+  },
   "scripts": {
     "test": "jest",
     "start": "ts-node ./src/index.ts",
