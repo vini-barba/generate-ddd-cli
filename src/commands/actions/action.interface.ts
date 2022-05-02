@@ -1,3 +1,4 @@
+import Config from '../../utils/config/config';
 import Name from '../../utils/name';
 
 export default interface ActionInterface {
@@ -7,4 +8,5 @@ export default interface ActionInterface {
   basePath: string;
   writeFile(): void;
   name: Name;
+  config: Config;
 }

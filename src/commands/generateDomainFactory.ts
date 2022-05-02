@@ -14,15 +14,19 @@ export default class GenerateDomainFactory
       .description('Generate a new Factory')
       .option(
         '-p, --path <path>',
-        'Path where the Factory should be created, default is "./src"',
-        './src',
+        `Path where the Factory should be created, default is your rootDir (${this.config.rootDir})`,
+        this.config.rootDir,
       );
     this.command.action((names: string[], options: any) => {
       names.forEach((name: string) => {
-        new CreateEntityFactory(name, options.path).writeFile();
+        new CreateEntityFactory(name, options.path, this.config).writeFile();
 
         if (this.config.createTests === true) {
-          new CreateEntityFactorySpec(name, options.path).writeFile();
+          new CreateEntityFactorySpec(
+            name,
+            options.path,
+            this.config,
+          ).writeFile();
         }
       });
     });

@@ -1,13 +1,14 @@
 import { join } from 'path';
 import ActionInterface from '../../action.interface';
-import Action from '../../action.abstract';
+import ActionAbstract, { Layer } from '../../action.abstract';
+import Config from '../../../../utils/config/config';
 
 export default class CreateEntityFactory
-  extends Action
+  extends ActionAbstract
   implements ActionInterface
 {
-  constructor(name: string, path: string) {
-    super(name, path);
+  constructor(name: string, path: string, config: Config) {
+    super(name, path, config);
     this.templateFileLocation = join(
       __dirname,
       '..',
@@ -21,9 +22,6 @@ export default class CreateEntityFactory
     );
 
     this.fileName = `${this.name.kebabCase()}.factory.ts`;
-
-    const pathToFile = join(this.basePath, this.name.kebabCase(), 'factory');
-
-    this.path = `${pathToFile}/${this.fileName}`;
+    this.changeFullPath('factory', Layer.DOMAIN);
   }
 }
