@@ -13,8 +13,30 @@
     "test": "jest",
     "start": "ts-node ./src/index.ts",
     "build": "rm -rf ./dist && tsc && cp -r ./src/templates/ ./dist/src/templates",
-    "local": "yarn build && ./bin/generate-ddd-cli"
+    "local": "yarn build && ./bin/generate-ddd-cli",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "eslint -c .eslintrc.js \"src/**/*.ts\" ",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vini-barba/ddd-cli"
+  },
+  "keywords": [
+    "cli",
+    "ddd",
+    "generate",
+    "generator",
+    "generate-ddd-cli"
+  ],
+  "files": [
+    "bin",
+    "dist/**/*"
+  ],
   "devDependencies": {
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
