@@ -1,10 +1,16 @@
+/* eslint-disable no-new */
 import { Command } from 'commander';
-import generateDomainFactory from './generateDomainFactory';
-import generateDomainEntity from './generateDomainEntity';
-import generateModule from './generateModule';
+import GenerateDomainFactory from './generateDomainFactory';
+import GenerateDomainEntity from './generateDomainEntity';
+import GenerateModule from './generateModule';
+import ConfigFile from '../utils/config/config';
 
-export default function init(args: string[], program: Command): void {
-  generateModule(args, program);
-  generateDomainFactory(args, program);
-  generateDomainEntity(args, program);
+export default async function init(
+  args: string[],
+  program: Command,
+  configFile: ConfigFile,
+): Promise<void> {
+  new GenerateModule(program, args, configFile);
+  new GenerateDomainFactory(program, args, configFile);
+  new GenerateDomainEntity(program, args, configFile);
 }
