@@ -99,5 +99,6 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": ["src/**/*.ts", "./package.json", "bin/**/*"],
-  "exclude": ["dist", "node_modules", "typings/globals", "typings/modules"]
+  "exclude": ["dist", "node_modules", "typings/globals", "typings/modules"],
+  "types": ["node", "jest"],
 }
