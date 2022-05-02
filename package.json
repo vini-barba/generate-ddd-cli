@@ -9,6 +9,9 @@
   "bin": {
     "generate-ddd-cli": "bin/generate-ddd-cli.js"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "test": "jest",
     "start": "ts-node ./src/index.ts",

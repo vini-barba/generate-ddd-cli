@@ -15,8 +15,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '14'
-          registry: 'https://registry.npmjs.org'
-          scope: '@vini_barba'
       - name: install
         run: yarn --frozen-lockfile
       - name: build
