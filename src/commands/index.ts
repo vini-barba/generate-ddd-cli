@@ -1,7 +1,8 @@
+/* eslint-disable no-new */
 import { Command } from 'commander';
-import generateDomainFactory from './generateDomainFactory';
-import generateDomainEntity from './generateDomainEntity';
-import generateModule from './generateModule';
+import GenerateDomainFactory from './generateDomainFactory';
+import GenerateDomainEntity from './generateDomainEntity';
+import GenerateModule from './generateModule';
 import ConfigFile from '../utils/config/config';
 
 export default async function init(
@@ -9,7 +10,7 @@ export default async function init(
   program: Command,
   configFile: ConfigFile,
 ): Promise<void> {
-  generateModule(args, program, configFile);
-  generateDomainFactory(args, program, configFile);
-  generateDomainEntity(args, program, configFile);
+  new GenerateModule(program, args, configFile);
+  new GenerateDomainFactory(program, args, configFile);
+  new GenerateDomainEntity(program, args, configFile);
 }

@@ -17,10 +17,8 @@ export default class ConfigManager {
     return this.configFile;
   }
 
-  async init(): Promise<Config> {
+  async init() {
     await this.readFile();
-    const config = this.configFile;
-    return config;
   }
 
   public get exists(): boolean {
@@ -46,7 +44,7 @@ export default class ConfigManager {
       default: true,
     });
     if (answer.create === true) {
-      this.askOptions();
+      await this.askOptions();
     } else {
       this.configFile = new Config();
     }

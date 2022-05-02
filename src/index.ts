@@ -6,8 +6,8 @@ import ConfigManager from './utils/config/configManager';
 
 export default async function cli(args: any) {
   const configManager = new ConfigManager();
-  const config = await configManager.init();
-  console.log(config);
+  await configManager.init();
+  const config = configManager.file;
 
   await init(args, program, config);
 
