@@ -11,18 +11,17 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: node
-        uses: actions/setup-node@v3
+      - name: setup-node
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14'
-          registry: 'https://registry.npmjs.org'
-          scope: '@vini-barba/generate-ddd-cli'
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
       - name: install
         run: yarn --frozen-lockfile
       - name: build
-        run: npm run build
+        run: yarn build
       - name: publish
-        run: npm publish --access public
+        run: yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
