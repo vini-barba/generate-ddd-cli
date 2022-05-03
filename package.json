@@ -1,6 +1,6 @@
 {
   "name": "generate-ddd-cli",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "description": "a cli to generate ddd components",
   "main": "bin/generate-ddd-cli.js",
   "author": "Barba<vinicius_gomes.94@hotmail.com>",
@@ -8,9 +8,6 @@
   "preferGlobal": true,
   "bin": {
     "generate-ddd-cli": "bin/generate-ddd-cli.js"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "test": "jest",
