@@ -24,7 +24,7 @@
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags",
+    "postversion": "git push origin main && git push origin main --tags",
     "semantic-release": "semantic-release"
   },
   "repository": {
