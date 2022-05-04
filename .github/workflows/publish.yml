@@ -17,7 +17,7 @@ jobs:
       - run: yarn
       - name: bump version
         env:
-          NPM_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
           GH_TOKEN: ${{secrets.GH_TOKEN}}
         run: npx semantic-release
       - run: yarn build
