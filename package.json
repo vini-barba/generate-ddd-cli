@@ -17,7 +17,7 @@
     "test": "jest",
     "start": "ts-node ./src/index.ts",
     "build": "rm -rf ./dist && tsc && cp -r ./src/templates/ ./dist/src/templates",
-    "local": "yarn build && node ./bin/generate-ddd-cli.js",
+    "local": "npm run build && node ./bin/generate-ddd-cli.js",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "eslint -c .eslintrc.js \"src/**/*.ts\" ",
     "prepare": "npm run build",
