@@ -18,7 +18,7 @@
     "start": "ts-node ./src/index.ts",
     "build": "rm -rf ./dist && tsc && cp -r ./src/templates/ ./dist/src/templates",
     "local": "npm run build && node ./bin/generate-ddd-cli.js",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint -c .eslintrc.js \"src/**/*.ts\" ",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
