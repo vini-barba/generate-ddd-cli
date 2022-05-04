@@ -15,14 +15,13 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      - run: npm run build
       - name: bump version
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           GH_TOKEN: ${{secrets.GH_TOKEN}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: npx semantic-release
-      - run: npm run build
-      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
