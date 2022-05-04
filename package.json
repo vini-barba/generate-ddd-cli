@@ -9,6 +9,10 @@
   "bin": {
     "generate-ddd-cli": "bin/generate-ddd-cli.js"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
+  },
   "scripts": {
     "test": "jest",
     "start": "ts-node ./src/index.ts",
