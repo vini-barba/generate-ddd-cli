@@ -22,12 +22,6 @@
 npm install -D generate-ddd-cli
 ```
 
-## Run tests
-
-```sh
-npm run test
-```
-
 ## Author
 
 👤 **Barba<vinicius_gomes.94@hotmail.com>**
