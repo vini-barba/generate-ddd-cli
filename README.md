@@ -19,13 +19,7 @@
 ## Install
 
 ```sh
-npm install
-```
-
-## Run tests
-
-```sh
-npm run test
+npm install -D generate-ddd-cli
 ```
 
 ## Author
