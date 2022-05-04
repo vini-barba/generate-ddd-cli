@@ -1,6 +1,6 @@
 {
   "name": "generate-ddd-cli",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "a cli to generate ddd components",
   "main": "bin/generate-ddd-cli",
   "author": "Barba<vinicius_gomes.94@hotmail.com>",
