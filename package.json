@@ -20,11 +20,6 @@
     "local": "npm run build && node ./bin/generate-ddd-cli.js",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint -c .eslintrc.js \"src/**/*.ts\" ",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push origin main && git push origin main --tags",
     "semantic-release": "semantic-release"
   },
   "repository": {
