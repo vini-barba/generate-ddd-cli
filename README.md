@@ -24,8 +24,6 @@ npm install -D generate-ddd-cli
 
 ## Author
 
-👤 **Barba<vinicius_gomes.94@hotmail.com>**
-
 * Github: [@vini-barba](https://github.com/vini-barba)
 
 ## Show your support
